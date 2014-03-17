@@ -23,7 +23,7 @@ public class SterlingAPITestAdIvn {
 		 * Cube -> SC 재고정보 연동(등록,수정)
 		 * 
 		 * 1. 동기화할 상품정보 조회 (DB, File)
-		 * 2. ManageItem객체형 ArrayList로 저장
+		 * 2. ManageItem 객체형 ArrayList로 저장
 		 * 3. manageItem API invoke
 		 */
 		// Sample Data
