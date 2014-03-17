@@ -15,7 +15,7 @@ public class AdjustInventory {
 			+ " ShipNode=\"{5}\" "
 			+ " SupplyType=\"{6}\" "
 			+ " AdjustmentType=\"{7}\"> "
-			+ "</Item>";
+			+ "</Item>"; 
 	
 	
 	private String itemID;
