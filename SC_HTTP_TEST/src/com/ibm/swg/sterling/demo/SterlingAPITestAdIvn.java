@@ -18,7 +18,7 @@ public class SterlingAPITestAdIvn {
 	 * @throws UnsupportedEncodingException 
 	 */
 	public static void main(String[] args) throws UnsupportedEncodingException {
-		
+
 		/* 
 		 * Cube -> SC 재고정보 연동(등록,수정)
 		 * 
