@@ -20,7 +20,7 @@ public class AdjustInventory {
 			+ " SupplyType=\"{6}\" "
 			+ " AdjustmentType=\"{7}\"> "
 			+ "</Item>"; 
-	
+	  
 	
 	private String itemID;
 	private String organizationCode;
