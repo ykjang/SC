@@ -6,10 +6,6 @@ import java.util.ArrayList;
 import com.ibm.klab.util.FileContentReader;
 import com.ibm.swg.sterling.demo.SterlingAPIWrapper;
 
-
-
-
-
 public class AdjustInventory {
 	private static final String templateFile = "adjustInventory.template.xml";
 	
