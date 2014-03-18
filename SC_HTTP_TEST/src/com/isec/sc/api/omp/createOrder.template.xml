@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+   <Order EnterpriseCode="Matrix" ShipNode="Matrix_WH1" PaymentStatus="AUTHORIZED" OrderNo="{4}">
+      <OrderLines>
+         <OrderLine OrderedQty="{3}">
+            <Item ItemID="{2}" UnitOfMeasure="EACH" ProductClass="GOOD"/>
+         </OrderLine>
+      </OrderLines>
+	  <PersonInfoShipTo FirstName="{0}" AddressLine1="{1}"/>
+	  <PersonInfoBillTo FirstName="{0}" AddressLine1="{1}"/>
+   </Order>

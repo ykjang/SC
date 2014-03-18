@@ -1,4 +1,4 @@
-package com.ibm.klab.util;
+package com.isec.sc.api.core.util;
 
 import java.io.BufferedReader;
 import java.io.File;

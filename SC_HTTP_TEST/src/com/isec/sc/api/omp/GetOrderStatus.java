@@ -1,4 +1,4 @@
-package com.ibm.swg.sterling.demo.api;
+package com.isec.sc.api.omp;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -13,24 +13,33 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.xml.sax.SAXException;
 
-import com.ibm.klab.util.FileContentReader;
-import com.ibm.swg.sterling.demo.SterlingAPIWrapper;
+import com.isec.sc.api.core.SterlingHTTPConnector;
+import com.isec.sc.api.core.util.FileContentReader;
 
 public class GetOrderStatus {
-	private static final String templateFile = "getOrderDetails.template.xml";
-	private static final String statusTextProperties = "statusText.properties";
+	
+	private static final String apiName = "getOrderDetails"; // API Name
+	private static final String templateFile = "getOrderDetails.template.xml"; // API Input Template
+	private static final String statusTextProperties = "orderStatusText.properties";	// Order Status -> 한글변환
 	
 	private String enterpriseCd;
 	private String orderNo;
 	
 	public String run() {
-		SterlingAPIWrapper api = new SterlingAPIWrapper();
+		
+		// Input XML load
 		String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 		
+		// Input Data Mapping
 		MessageFormat msg = new MessageFormat(template);
 		String input = msg.format(new String[] { enterpriseCd, orderNo });
+				
 		
-		String output = api.getOrderDetails(input);
+		// API 호출
+		SterlingHTTPConnector sterling = new SterlingHTTPConnector();
+		sterling.setApi(apiName);
+		sterling.setData(input);
+		String output = sterling.run();
 		
 		Document doc = null;
 
@@ -63,7 +72,7 @@ public class GetOrderStatus {
 
 		translatedStatus = statusText.getProperty(status);
 
-		return (translatedStatus != null ? translatedStatus : status);
+		return (translatedStatus != null ? translatedStatus+"("+status+")" : status);
 	}
 
 	public String getOrderNo() {
