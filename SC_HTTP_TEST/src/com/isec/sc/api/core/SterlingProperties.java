@@ -1,4 +1,4 @@
-package com.ibm.swg.sterling.demo;
+package com.isec.sc.api.core;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

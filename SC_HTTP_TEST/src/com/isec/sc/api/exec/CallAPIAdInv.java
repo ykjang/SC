@@ -1,17 +1,17 @@
-package com.ibm.swg.sterling.demo;
+package com.isec.sc.api.exec;
 
 import java.io.UnsupportedEncodingException;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import com.ibm.klab.util.FileContentReader;
-import com.ibm.swg.sterling.demo.api.AdjustInventory;
-import com.ibm.swg.sterling.demo.api.CreateOrder;
-import com.ibm.swg.sterling.demo.api.GetInventorySupply;
-import com.ibm.swg.sterling.demo.api.GetOrderStatus;
-import com.ibm.swg.sterling.demo.api.ManageItem;
+import com.isec.sc.api.cm.ManageItem;
+import com.isec.sc.api.core.util.FileContentReader;
+import com.isec.sc.api.inv.AdjustInventory;
+import com.isec.sc.api.inv.GetInventorySupply;
+import com.isec.sc.api.omp.CreateOrder;
+import com.isec.sc.api.omp.GetOrderStatus;
 
-public class SterlingAPITestAdIvn {
+public class CallAPIAdInv {
 
 	/**
 	 * @param args
@@ -51,7 +51,7 @@ public class SterlingAPITestAdIvn {
 		ai.setItemList(itemList);
 		
 		// API 호출
-		String rtnXml = ai.run();
+		String rtnXml = ai.invoke();
 		
 		System.out.println("========== Retrun Message ==========");
 		System.out.println(rtnXml);

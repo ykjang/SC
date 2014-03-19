@@ -1,14 +1,24 @@
-package com.ibm.swg.sterling.demo.api;
+package com.isec.sc.api.inv;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import com.ibm.klab.util.FileContentReader;
-import com.ibm.swg.sterling.demo.SterlingAPIWrapper;
+import com.isec.sc.api.core.SterlingHTTPConnector;
+import com.isec.sc.api.core.util.FileContentReader;
 
+/**
+ *  * 
+ * Item 의 Inventory(재고)정보를 조정하는 API(adjustInventory)를 HTTP URL방식으로 
+ * Interface 할 수 있도록 처리한 클래스
+ *  * 
+ *
+ */
 public class AdjustInventory {
-	private static final String templateFile = "adjustInventory.template.xml";
 	
+	private static final String apiName = "adjustInventory";	// API Name
+	private static final String templateFile = "adjustInventory.template.xml";	// API Input template
+	
+	// API Input template
 	private static final String itemTemplate = "<Item ItemID=\"{0}\" OrganizationCode=\"{1}\" UnitOfMeasure=\"{2}\" "
 			+ " ProductClass=\"{3}\" "
 			+ " Quantity=\"{4}\" "
@@ -18,6 +28,7 @@ public class AdjustInventory {
 			+ "</Item>"; 
 	  
 	
+	// API Input Attribute
 	private String itemID;
 	private String organizationCode;
 	private String unitOfMeasure;
@@ -27,15 +38,17 @@ public class AdjustInventory {
 	private String supplyType;
 	private String adjustmentType;
 	
+	// 변경대상 Item List
 	private ArrayList<AdjustInventory> itemList = new ArrayList<AdjustInventory>();
 	
 	
-	public String run() {
-		SterlingAPIWrapper api = new SterlingAPIWrapper();
+	public String invoke() {
 		
-		// Item List XML 생성
+		// Input XML 생성
 		MessageFormat itemMsg = new MessageFormat(itemTemplate);
 		String allItemText = "";
+		
+		// Item 건수만큼 반복
 		for(int i=0; i<itemList.size(); i++){
 			
 			String[] item_param = {
@@ -48,19 +61,26 @@ public class AdjustInventory {
 			allItemText += itemInput;
 		}		
 		
-		// Template 파일로드
+		// Template Load
 		String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));		
 		
-		// 생성된 Item XML 반영
+		
+		// Input XML String 완성
 		MessageFormat msg = new MessageFormat(template);
 		String input = msg.format(new String[]{allItemText});
 		
+		
 		//  API 호출
-		return api.adjustInventory(input);
+		SterlingHTTPConnector sterling = new SterlingHTTPConnector();
+		sterling.setApi(apiName);
+		sterling.setData(input);
+		return sterling.run();
+		
 	}
 	
 	
 	
+	// getter/setter
 
 	public String getItemID() {
 		return itemID;

@@ -1,10 +1,10 @@
-package com.ibm.swg.sterling.demo;
+package com.isec.sc.api.core;
 
 import java.text.MessageFormat;
 
-import com.ibm.klab.util.HTTPClient;
+import com.isec.sc.api.core.util.HTTPClient;
 
-public class SterlingHTTP {
+public class SterlingHTTPConnector {
 	private String url;
 	private String user;
 	private String password;
@@ -13,7 +13,7 @@ public class SterlingHTTP {
 	private String api;
 	private String data;
 	
-	public SterlingHTTP() {
+	public SterlingHTTPConnector() {
 		SterlingProperties prop = new SterlingProperties();
 		url = prop.getProperty("sterling.http.url");		
 		user = prop.getProperty("sterling.user");

@@ -1,14 +1,17 @@
-package com.ibm.swg.sterling.demo.api;
+package com.isec.sc.api.cm;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
 
-import com.ibm.klab.util.FileContentReader;
-import com.ibm.swg.sterling.demo.SterlingAPIWrapper;
+import com.isec.sc.api.core.SterlingHTTPConnector;
+import com.isec.sc.api.core.util.FileContentReader;
 
 public class ManageItem {
-	private static final String templateFile = "manageItem.template.xml";
 	
+	private static final String apiName = "manageItem"; // API Name
+	private static final String templateFile = "manageItem.template.xml"; // API Input Template
+	
+	// API Input Template
 	private static final String itemTemplate = "<Item Action=\"{0}\" GlobalItemID=\"{1}\" ItemID=\"{2}\" OrganizationCode=\"{3}\" UnitOfMeasure=\"{4}\">"
 			+ "<PrimaryInformation "
 			+ " EffectiveEndDate=\"{5}\" "
@@ -23,6 +26,7 @@ public class ManageItem {
 			+ "/>"
 			+ "</Item>";
 	
+	// API Input Attribute
 	private String action;
 	private String globalItemID;
 	private String itemID;
@@ -42,7 +46,6 @@ public class ManageItem {
 	
 	
 	public String run() {
-		SterlingAPIWrapper api = new SterlingAPIWrapper();
 		
 		// Item List XML 생성
 		MessageFormat itemMsg = new MessageFormat(itemTemplate);
@@ -66,7 +69,12 @@ public class ManageItem {
 		MessageFormat msg = new MessageFormat(template);
 		String input = msg.format(new String[]{allItemText});
 		
-		return api.manageItem(input);
+		// API 호출
+		SterlingHTTPConnector sterling = new SterlingHTTPConnector();
+		sterling.setApi(apiName);
+		sterling.setData(input);
+		return sterling.run();
+		
 	}
 	
 	public String getAction() {

@@ -1,4 +1,4 @@
-package com.ibm.swg.sterling.demo.api;
+package com.isec.sc.api.inv;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -12,22 +12,31 @@ import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.ibm.klab.util.FileContentReader;
-import com.ibm.swg.sterling.demo.SterlingAPIWrapper;
+import com.isec.sc.api.core.SterlingHTTPConnector;
+import com.isec.sc.api.core.util.FileContentReader;
 
 public class GetInventorySupply {
-	private static final String templateFile = "getInventorySupply.template.xml";
-	private String item;
+	
+	private static final String apiName = "getInventorySupply"; // API Name
+	private static final String templateFile = "getInventorySupply.template.xml"; // API Input Template
+	
+	private String item; // 아아템ID
 	
 	public boolean run() {
-		SterlingAPIWrapper api = new SterlingAPIWrapper();
 		String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 		
 		MessageFormat msg = new MessageFormat(template);
 		String input = msg.format(new String[] { item });
 		
-		String output = api.getInventorySupply(input);
 		
+		// API 호출
+		SterlingHTTPConnector sterling = new SterlingHTTPConnector();
+		sterling.setApi(apiName);
+		sterling.setData(input);
+		String output = sterling.run();
+		
+		
+		// Output XML Parsing
 		Document doc = null;
 
 		try {
@@ -47,10 +56,9 @@ public class GetInventorySupply {
 		Element supplyNode = (Element) root.getElementsByTagName("InventorySupply").item(0);
 		if (supplyNode == null)	return false;
 		
-		String itemCount = supplyNode.getAttribute("Quantity");
+		String itemCount = supplyNode.getAttribute("Quantity");		
 		
-		//System.out.println(itemCount);
-		
+		// 재고수량이 0보다 클 경우 true ELSE false 리턴
 		return Double.parseDouble(itemCount) > 0;
 	}
 
