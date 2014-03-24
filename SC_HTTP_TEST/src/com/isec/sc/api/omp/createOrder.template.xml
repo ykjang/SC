@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-   <Order EnterpriseCode="Matrix" ShipNode="Matrix_WH1" PaymentStatus="AUTHORIZED" OrderNo="{4}">
+   <Order EnterpriseCode="Matrix" ShipNode="Matrix_WH1" PaymentStatus="AUTHORIZED" OrderNo="{4}" OrderType="URGENT">
       <OrderLines>
          <OrderLine OrderedQty="{3}">
             <Item ItemID="{2}" UnitOfMeasure="EACH" ProductClass="GOOD"/>

@@ -20,11 +20,11 @@ public class AdjustInventory {
 	
 	// API Input template
 	private static final String itemTemplate = "<Item ItemID=\"{0}\" OrganizationCode=\"{1}\" UnitOfMeasure=\"{2}\" "
-			+ " ProductClass=\"{3}\" "
-			+ " Quantity=\"{4}\" "
-			+ " ShipNode=\"{5}\" "
-			+ " SupplyType=\"{6}\" "
-			+ " AdjustmentType=\"{7}\"> "
+			// + " ProductClass=\"{3}\" "
+			+ " Quantity=\"{3}\" "
+			+ " ShipNode=\"{4}\" "
+			+ " SupplyType=\"{5}\" "
+			+ " AdjustmentType=\"{6}\"> "
 			+ "</Item>"; 
 	  
 	
@@ -53,7 +53,7 @@ public class AdjustInventory {
 			
 			String[] item_param = {
 									itemList.get(i).itemID, itemList.get(i).organizationCode, itemList.get(i).unitOfMeasure,
-									itemList.get(i).productClass, Integer.toString(itemList.get(i).quantity), itemList.get(i).shipNode,
+									Integer.toString(itemList.get(i).quantity), itemList.get(i).shipNode,
 									itemList.get(i).supplyType, itemList.get(i).adjustmentType
 								  };
 			
