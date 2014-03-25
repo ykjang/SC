@@ -21,7 +21,9 @@ public class CallAPIGetInv {
 		// 아이템 재고정보 조회
 		GetInventorySupply is = new GetInventorySupply();
 		is.setItem("GRA122A010BLML");
-		boolean result = is.run();
+		
+		
+		int result = is.run();
 		System.out.println(result);
 
 	}

@@ -32,7 +32,7 @@ public class SterlingHTTPConnector {
 		HTTPClient client = new HTTPClient(url);
 		client.setMethod("POST");
 		client.setInputContent(newParam);
-		client.setDebug(true);
+		client.setDebug(false);
 		client.invoke();
 		
 		System.out.println("========= Output XML Message =========");
