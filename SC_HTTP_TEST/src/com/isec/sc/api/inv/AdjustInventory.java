@@ -20,7 +20,6 @@ public class AdjustInventory {
 	
 	// API Input template
 	private static final String itemTemplate = "<Item ItemID=\"{0}\" OrganizationCode=\"{1}\" UnitOfMeasure=\"{2}\" "
-			// + " ProductClass=\"{3}\" "
 			+ " Quantity=\"{3}\" "
 			+ " ShipNode=\"{4}\" "
 			+ " SupplyType=\"{5}\" "

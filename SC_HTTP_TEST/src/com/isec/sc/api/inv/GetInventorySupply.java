@@ -21,12 +21,15 @@ public class GetInventorySupply {
 	private static final String templateFile = "getInventorySupply.template.xml"; // API Input Template
 	
 	private String item; // 아아템ID
+	private String organizationCode; // 재고조직코드(큐브 사업부코드)
+	private String shipNode;	// 출하노드(창고코드)
 	
-	public boolean run() {
+	
+	public int run() {
 		String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 		
 		MessageFormat msg = new MessageFormat(template);
-		String input = msg.format(new String[] { item });
+		String input = msg.format(new String[] { item, organizationCode, shipNode });
 		
 		
 		// API 호출
@@ -54,12 +57,11 @@ public class GetInventorySupply {
 		
 		Element root = doc.getDocumentElement();
 		Element supplyNode = (Element) root.getElementsByTagName("InventorySupply").item(0);
-		if (supplyNode == null)	return false;
+		if (supplyNode == null)	return 0;
 		
 		String itemCount = supplyNode.getAttribute("Quantity");		
-		
-		// 재고수량이 0보다 클 경우 true ELSE false 리턴
-		return Double.parseDouble(itemCount) > 0;
+				
+		return (int)(Double.parseDouble(itemCount));
 	}
 
 	public String getItem() {
@@ -69,4 +71,22 @@ public class GetInventorySupply {
 	public void setItem(String item) {
 		this.item = item;
 	}
+
+	public String getOrganizationCode() {
+		return organizationCode;
+	}
+
+	public void setOrganizationCode(String organizationCode) {
+		this.organizationCode = organizationCode;
+	}
+
+	public String getShipNode() {
+		return shipNode;
+	}
+
+	public void setShipNode(String shipNode) {
+		this.shipNode = shipNode;
+	}
+	
+	
 }
