@@ -9,6 +9,7 @@ import com.isec.sc.api.core.util.FileContentReader;
 import com.isec.sc.api.inv.GetInventorySupply;
 import com.isec.sc.api.omp.CreateOrder;
 import com.isec.sc.api.omp.GetOrderStatus;
+import com.isec.sc.api.omp.OrderLine;
 
 public class CallAPICrtOrd {
 
@@ -18,15 +19,31 @@ public class CallAPICrtOrd {
 	 */
 	public static void main(String[] args) throws UnsupportedEncodingException {
 		
-		// Order 생성
+
 		CreateOrder co = new CreateOrder();
-		
+
+        // Order Master 생성
+        co.setEnterpriseCode("Aurora-Corp");
+        co.setSellerOrganizationCode("Aurora");
+        co.setPaymentStatus("AWAIT_AUTH");
+        co.setOrderNo("ORDER_TEST_1");
+
+        // 주문상품정보 생성(상품코드,주문수량,가격)
+        ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
+        OrderLine orderLine = new OrderLine();
+        orderLine.setItemId("ITEM0001");
+        orderLine.setQuantity(3);
+        orderLine.setPrice(1500);
+        orderLineList.add(orderLine);
+
+        co.setOrderLineList(orderLineList);
+
+
+        // 구매자 정보
 		co.setPersonName("Barack Obama");
 		co.setAddress("Washington DC");
-		co.setItem("GRA122A010BLML");
-		co.setQuantity(2);
-		co.setOrderNo("ORDER_TEST_3");
-		co.run();
+
+        co.run();
 	}
 }
 

@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-   <Order EnterpriseCode="Matrix" ShipNode="Matrix_WH1" PaymentStatus="AUTHORIZED" OrderNo="{4}" OrderType="URGENT">
+   <Order EnterpriseCode="{0}" SellerOrganizationCode="{1}" ShipNode="Aurora_WH1" PaymentStatus="{2}" OrderNo="{3}">
       <OrderLines>
-         <OrderLine OrderedQty="{3}">
-            <Item ItemID="{2}" UnitOfMeasure="EACH" ProductClass="GOOD"/>
-         </OrderLine>
+         {4}
       </OrderLines>
-	  <PersonInfoShipTo FirstName="{0}" AddressLine1="{1}"/>
-	  <PersonInfoBillTo FirstName="{0}" AddressLine1="{1}"/>
+	  <PersonInfoShipTo FirstName="{5}" AddressLine1="{6}"/>
+	  <PersonInfoBillTo FirstName="{5}" AddressLine1="{6}"/>
    </Order>
