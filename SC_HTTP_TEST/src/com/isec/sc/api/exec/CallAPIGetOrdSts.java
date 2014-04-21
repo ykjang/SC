@@ -21,8 +21,8 @@ public class CallAPIGetOrdSts {
 		
 		// Order Status 조회
 		GetOrderStatus os = new GetOrderStatus();
-		os.setEnterpriseCd("Matrix");
-		os.setOrderNo("ORDER_TEST_3");
+		os.setEnterpriseCd("Aurora");
+		os.setOrderNo("ORDER_TEST_2");
 		String status = os.run();
 		
 		System.out.println("Order Status: " + status);

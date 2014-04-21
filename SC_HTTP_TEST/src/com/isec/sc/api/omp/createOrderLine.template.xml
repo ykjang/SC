@@ -1,0 +1,7 @@
+<OrderLine OrderedQty="{0}">
+    <Item ItemID="{1}" UnitOfMeasure="EACH" ProductClass="GOOD"/>
+    <LinePriceInfo DiscountPercentage="0" IsLinePriceForInformationOnly="N" IsPriceLocked="Y" UnitPrice="{2}" ListPrice="{3}" RetailPrice="{4}" />
+    <!--<LineCharges>
+        <LineCharge ChargeCategory="Required" ChargeName="" ChargePerLine="" ChargePerUnit="" IsManual="" Reference=""/>
+    </LineCharges>-->
+</OrderLine>
