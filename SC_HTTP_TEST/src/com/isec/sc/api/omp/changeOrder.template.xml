@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-   <Order EnterpriseCode="{0}" SellerOrganizationCode="{1}" PaymentStatus="{2}" OrderNo="{3}"
+   <Order Action="MODIFY" OrderHeaderKey="{0}" OrderName="{1}" PaymentStatus="{2}" {3}
           ReqDeliveryDate="{4}" ShipNode="{5}">
       <OrderLines>
          {16}

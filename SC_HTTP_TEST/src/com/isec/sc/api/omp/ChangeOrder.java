@@ -45,10 +45,11 @@ public class ChangeOrder {
         String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 
 		MessageFormat msg = new MessageFormat(template);
-		String input = msg.format(new String[] { order.getEnterpriseCode(),
-                order.getSellerOrganizationCode(),
+		String input = msg.format(new String[] {
+                order.getOrderHeaderKey(),
+                "",
                 order.getPaymentStatus(),
-                order.getOrderNo(),
+                "",
                 order.getReqDeliveryDate(),
                 order.getShipNode(),
                 order.getFirstName(), order.getLastName(), order.getPhone(), order.getEmail(), order.getMobilePhone(),

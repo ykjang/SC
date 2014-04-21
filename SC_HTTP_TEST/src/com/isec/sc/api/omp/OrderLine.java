@@ -6,8 +6,7 @@ public class OrderLine {
 
     private String action;
     private String orderLineKey;
-
-
+    private String primeLineNo;
 
 
     private String itemId;	        // 상품ID
@@ -101,5 +100,13 @@ public class OrderLine {
 
     public void setOrderLineKey(String orderLineKey) {
         this.orderLineKey = orderLineKey;
+    }
+
+    public String getPrimeLineNo() {
+        return primeLineNo;
+    }
+
+    public void setPrimeLineNo(String primeLineNo) {
+        this.primeLineNo = primeLineNo;
     }
 }

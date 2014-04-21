@@ -20,18 +20,24 @@ public class CallAPIChangeOrder {
 		Order ord = new Order();
 
         // Order Master 생성
-        ord.setEnterpriseCode("Aurora");
-        ord.setSellerOrganizationCode("Aurora");
+//        ord.setEnterpriseCode("Aurora");
+//        ord.setSellerOrganizationCode("Aurora");
+//        ord.setOrderNo("ORDER_TEST_2");
+
+        // OrderHeaderKey
+        // 20140421025543388652
+        ord.setOrderHeaderKey("20140421025543388652");
 
         // 결재승인상태 변경 (승인완료)
         ord.setPaymentStatus("AUTHORIZED");
 
 
-        ord.setOrderNo("ORDER_TEST_2");
+
         ord.setReqDeliveryDate("2013-12-31");
         ord.setShipNode("");
+
         // 구매자/배송처 정보
-        ord.setFirstName("Barack aaa");
+        ord.setFirstName("Barack ccc");
         ord.setLastName("Obama bbb");
         ord.setPhone("82212345678");
         ord.setEmail("test@test.com");
@@ -43,15 +49,16 @@ public class CallAPIChangeOrder {
         ord.setZipcode("123456");
 
 
-        // 주문상품정보 생성(n건, 상품코드,주문수량,가격)
+        // 주문상품정보 변경(n건, 상품코드,주문수량,가격)
         ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
         OrderLine orderLine = new OrderLine();
 
         orderLine.setAction("Modify");
-        orderLine.setOrderLineKey("20140421025543388653");
-
+        orderLine.setOrderLineKey("20140421025543388653");  // OrderLine Unique key
         orderLine.setItemId("ITEM0001");
-        orderLine.setQuantity(15);
+        //orderLine.setPrimeLineNo("1");
+
+        orderLine.setQuantity(16);
         orderLine.setUnitPrice(600);
         orderLine.setListPrice(1000);
         orderLine.setRetailPrice(1500);

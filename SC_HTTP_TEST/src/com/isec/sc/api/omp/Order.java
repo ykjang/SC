@@ -5,6 +5,8 @@ import java.util.ArrayList;
 
 public class Order {
 
+    private String orderHeaderKey;          // Order Unique Key
+
     private String enterpriseCode;          // 엔터프라이즈코드
     private String sellerOrganizationCode;  // 판매조직코드
     private String paymentStatus;           // 결제상태
@@ -164,5 +166,13 @@ public class Order {
 
     public void setOrderLineList(ArrayList<OrderLine> orderLineList) {
         this.orderLineList = orderLineList;
+    }
+
+    public String getOrderHeaderKey() {
+        return orderHeaderKey;
+    }
+
+    public void setOrderHeaderKey(String orderHeaderKey) {
+        this.orderHeaderKey = orderHeaderKey;
     }
 }
