@@ -20,25 +20,25 @@ public class CallAPIChangeOrder {
 		Order ord = new Order();
 
         // Order Master 생성
-//        ord.setEnterpriseCode("Aurora");
-//        ord.setSellerOrganizationCode("Aurora");
-//        ord.setOrderNo("ORDER_TEST_2");
+        ord.setEnterpriseCode("Aurora");
+        ord.setSellerOrganizationCode("Aurora");
+        ord.setOrderNo("ORDER_TEST_3");
 
         // OrderHeaderKey
         // 20140421025543388652
-        ord.setOrderHeaderKey("20140421025543388652");
+        // ord.setOrderHeaderKey("20140421025543388652");
 
-        // 결재승인상태 변경 (승인완료)
+        /*
+            결재승인상태 변경 (승인완료)
+            AWAIT_AUTH - 승인대기
+            AUTHORIZED - 승인
+            HOLD - 보류
+        */
         ord.setPaymentStatus("AUTHORIZED");
 
-
-
-        ord.setReqDeliveryDate("2013-12-31");
-        ord.setShipNode("");
-
         // 구매자/배송처 정보
-        ord.setFirstName("Barack ccc");
-        ord.setLastName("Obama bbb");
+        ord.setFirstName("Barack");
+        ord.setLastName("Obama");
         ord.setPhone("82212345678");
         ord.setEmail("test@test.com");
         ord.setMobilePhone("1048110813");
@@ -46,26 +46,25 @@ public class CallAPIChangeOrder {
         ord.setAddress2("ABC Street 1234");
         ord.setCity("Seoul");
         ord.setCountry("KR");
-        ord.setZipcode("123456");
+        ord.setZipcode("12345");
 
 
         // 주문상품정보 변경(n건, 상품코드,주문수량,가격)
-        ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
-        OrderLine orderLine = new OrderLine();
-
-        orderLine.setAction("Modify");
-        orderLine.setOrderLineKey("20140421025543388653");  // OrderLine Unique key
-        orderLine.setItemId("ITEM0001");
-        //orderLine.setPrimeLineNo("1");
-
-        orderLine.setQuantity(16);
-        orderLine.setUnitPrice(600);
-        orderLine.setListPrice(1000);
-        orderLine.setRetailPrice(1500);
-
-        orderLineList.add(orderLine);
-
-        ord.setOrderLineList(orderLineList);
+//        ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
+//        OrderLine orderLine = new OrderLine();
+//
+//        orderLine.setAction("Modify");
+//        orderLine.setOrderLineKey("20140421025543388653");  // OrderLine Unique key
+//        orderLine.setItemId("ITEM0001");
+//
+//        orderLine.setQuantity(16);
+//        orderLine.setUnitPrice(600);
+//        orderLine.setListPrice(1000);
+//        orderLine.setRetailPrice(1500);
+//
+//        orderLineList.add(orderLine);
+//
+//        ord.setOrderLineList(orderLineList);
 
         ChangeOrder co = new ChangeOrder();
         co.setOrder(ord);

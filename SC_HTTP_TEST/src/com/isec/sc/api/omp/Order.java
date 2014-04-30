@@ -5,13 +5,17 @@ import java.util.ArrayList;
 
 public class Order {
 
+    private String documentType;            // Document 유형
+
     private String orderHeaderKey;          // Order Unique Key
 
     private String enterpriseCode;          // 엔터프라이즈코드
     private String sellerOrganizationCode;  // 판매조직코드
+    private String buyerUserId;             // 구매자 유저ID
     private String paymentStatus;           // 결제상태
     private String orderNo;                 // 주문번호
     private String reqDeliveryDate;         // 배송요청일자
+    private String reqShipDate;             // 출하요청일자
     private String shipNode;                // 출하노드
 
     // 구매자/배송처 정보
@@ -30,7 +34,6 @@ public class Order {
 
     // OrderLine 정보 (주문상품, 수량, 가격)
     private ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
-
 
     public String getEnterpriseCode() {
         return enterpriseCode;
@@ -174,5 +177,29 @@ public class Order {
 
     public void setOrderHeaderKey(String orderHeaderKey) {
         this.orderHeaderKey = orderHeaderKey;
+    }
+
+    public String getDocumentType() {
+        return documentType;
+    }
+
+    public void setDocumentType(String documentType) {
+        this.documentType = documentType;
+    }
+
+    public String getBuyerUserId() {
+        return buyerUserId;
+    }
+
+    public void setBuyerUserId(String buyerUserId) {
+        this.buyerUserId = buyerUserId;
+    }
+
+    public String getReqShipDate() {
+        return reqShipDate;
+    }
+
+    public void setReqShipDate(String reqShipDate) {
+        this.reqShipDate = reqShipDate;
     }
 }

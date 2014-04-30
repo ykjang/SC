@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-   <Order Action="MODIFY" OrderHeaderKey="{0}" OrderName="{1}" PaymentStatus="{2}" {3}
-          ReqDeliveryDate="{4}" ShipNode="{5}">
-      <OrderLines>
-         {16}
-      </OrderLines>
-	  <PersonInfoShipTo FirstName="{6}" LastName="{7}" DayPhone="{8}" EMailID="{9}" MobilePhone="{10}"
-                        AddressLine1="{11}" AddressLine2="{12}" City="{13}" Country="{14}" ZipCode="{15}" />
-	  <PersonInfoBillTo FirstName="{6}" LastName="{7}" DayPhone="{8}" EMailID="{9}" MobilePhone="{10}"
-                        AddressLine1="{11}" AddressLine2="{12}" City="{13}" Country="{14}" ZipCode="{15}" />
-   </Order>
+<Order Action="MODIFY" DocumentType="0001" EnterpriseCode="{0}" OrderNo="{1}" PaymentStatus="{2}">
+<OrderLines>
+    <!-- Item, Price Info -->
+    {3}
+</OrderLines>
+<PersonInfoShipTo FirstName="{4}" LastName="{5}" DayPhone="{6}" EMailID="{7}" MobilePhone="{8}"
+                  AddressLine1="{9}" AddressLine2="{10}" City="{11}" Country="{12}" ZipCode="{13}" />
+ </Order>

@@ -23,14 +23,17 @@ public class CallAPICreateOrder {
 
 		Order ord = new Order();
 
-        // Order Master 생성
-        ord.setEnterpriseCode("Aurora");
+        // Order 기본정보
+        ord.setEnterpriseCode("Aurora-Corp");
+        ord.setOrderNo("ORDER_TEST_10");
         ord.setSellerOrganizationCode("Aurora");
+        ord.setBuyerUserId("buyer1");
         ord.setPaymentStatus("AWAIT_AUTH");
-        ord.setOrderNo("ORDER_TEST_2");
-        ord.setReqDeliveryDate("2013-12-31");
-        ord.setShipNode("");
-        // 구매자/배송처 정보
+        ord.setReqDeliveryDate("2014-05-05");
+        ord.setReqShipDate("2014-05-01");
+        ord.setShipNode("Aurora_WH1");
+
+        // 배송처 정보
         ord.setFirstName("Barack");
         ord.setLastName("Obama");
         ord.setPhone("82212345678");
@@ -38,31 +41,26 @@ public class CallAPICreateOrder {
         ord.setMobilePhone("1048110813");
         ord.setAddress1("Washington DC");
         ord.setAddress2("ABC Street 1234");
-        ord.setCity("Seoul");
+        ord.setCity("Washington");
         ord.setCountry("KR");
         ord.setZipcode("123456");
 
 
-        // 주문상품정보 생성(n건, 상품코드,주문수량,가격)
+        // Order 상품정보 생성(n건, 상품코드,주문수량,가격) - 테스트로 2건의 주문상품데이타 생성
         ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
         OrderLine orderLine = new OrderLine();
-
 
         orderLine.setItemId("ITEM0001");
         orderLine.setQuantity(3);
         orderLine.setUnitPrice(500);
-        orderLine.setListPrice(1000);
-        orderLine.setRetailPrice(1500);
         orderLineList.add(orderLine);
 
-        orderLine = new OrderLine();
-        orderLine.setItemId("ITEM0002");
-        orderLine.setQuantity(5);
-        orderLine.setUnitPrice(700);
-        orderLine.setListPrice(800);
-        orderLine.setRetailPrice(900);
-        orderLineList.add(orderLine);
-
+//        orderLine = new OrderLine();
+//        orderLine.setItemId("ITEM0002");
+//        orderLine.setQuantity(5);
+//        orderLine.setUnitPrice(700);
+//        orderLineList.add(orderLine);
+//
         ord.setOrderLineList(orderLineList);
 
         CreateOrder co = new CreateOrder();

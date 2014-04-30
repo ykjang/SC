@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-   <Order EnterpriseCode="{0}" SellerOrganizationCode="{1}" PaymentStatus="{2}" OrderNo="{3}"
-          ReqDeliveryDate="{4}" ShipNode="{5}">
+   <Order DocumentType="0001" EnterpriseCode="{0}" OrderNo="{1}" SellerOrganizationCode="{2}" BuyerUserId="{3}" PaymentStatus="{4}"
+          ReqDeliveryDate="{5}" ReqShipDate="{6}" ShipNode="{7}">
       <OrderLines>
-         {16}
+         {8}
       </OrderLines>
-	  <PersonInfoShipTo FirstName="{6}" LastName="{7}" DayPhone="{8}" EMailID="{9}" MobilePhone="{10}"
-                        AddressLine1="{11}" AddressLine2="{12}" City="{13}" Country="{14}" ZipCode="{15}" />
-	  <PersonInfoBillTo FirstName="{6}" LastName="{7}" DayPhone="{8}" EMailID="{9}" MobilePhone="{10}"
-                        AddressLine1="{11}" AddressLine2="{12}" City="{13}" Country="{14}" ZipCode="{15}" />
+	  <PersonInfoShipTo FirstName="{9}" LastName="{10}" DayPhone="{11}" EMailID="{12}" MobilePhone="{13}"
+                        AddressLine1="{14}" AddressLine2="{15}" City="{16}" Country="{17}" ZipCode="{18}" />
+      <PersonInfoBillTo FirstName="{9}" LastName="{10}" DayPhone="{11}" EMailID="{12}" MobilePhone="{13}"
+                      AddressLine1="{14}" AddressLine2="{15}" City="{16}" Country="{17}" ZipCode="{18}" />
    </Order>

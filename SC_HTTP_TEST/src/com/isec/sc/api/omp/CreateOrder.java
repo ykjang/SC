@@ -14,7 +14,6 @@ public class CreateOrder {
 
 	
     private Order order;
-
     public void setOrder(Order order){
         this.order = order;
     }
@@ -31,11 +30,10 @@ public class CreateOrder {
         for(int i=0; i<order.getOrderLineList().size(); i++){
 
             OrderLine orderLine = order.getOrderLineList().get(i);
-            orderLineText += orderLineMsg.format(new String[] { Double.toString(orderLine.getQuantity()),
-                                                                orderLine.getItemId(),
-                                                                Double.toString(orderLine.getUnitPrice()),
-                                                                Double.toString(orderLine.getListPrice()),
-                                                                Double.toString(orderLine.getRetailPrice())
+            orderLineText += orderLineMsg.format(new String[] {
+                    Double.toString(orderLine.getQuantity()),   // 주문수량
+                    orderLine.getItemId(),                      // 상품코드
+                    Double.toString(orderLine.getUnitPrice())   // 판매가격(건별)
             });
         }
 
@@ -43,15 +41,18 @@ public class CreateOrder {
         String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 
 		MessageFormat msg = new MessageFormat(template);
-		String input = msg.format(new String[] { order.getEnterpriseCode(),
-                order.getSellerOrganizationCode(),
-                order.getPaymentStatus(),
+		String input = msg.format(new String[] {
+                order.getEnterpriseCode(),
                 order.getOrderNo(),
+                order.getSellerOrganizationCode(),
+                order.getBuyerUserId(),
+                order.getPaymentStatus(),
                 order.getReqDeliveryDate(),
+                order.getReqShipDate(),
                 order.getShipNode(),
+                orderLineText,
                 order.getFirstName(), order.getLastName(), order.getPhone(), order.getEmail(), order.getMobilePhone(),
                 order.getAddress1(), order.getAddress2(), order.getCity(), order.getCountry(), order.getZipcode(),
-                orderLineText
         });
 		
 		//  API 호출

@@ -23,38 +23,35 @@ public class ChangeOrder {
     public void run() {
 
 
-        // OrderLine XML Generation
-        String ol_template = FileContentReader.readContent(getClass().getResourceAsStream(ol_templateFile));
-
-        MessageFormat orderLineMsg = new MessageFormat(ol_template);
-        String orderLineText = "";
-        for(int i=0; i<order.getOrderLineList().size(); i++){
-
-            OrderLine orderLine = order.getOrderLineList().get(i);
-            orderLineText += orderLineMsg.format(new String[] { Double.toString(orderLine.getQuantity()),
-                                                                orderLine.getItemId(),
-                                                                Double.toString(orderLine.getUnitPrice()),
-                                                                Double.toString(orderLine.getListPrice()),
-                                                                Double.toString(orderLine.getRetailPrice()),
-                                                                orderLine.getAction(),
-                                                                orderLine.getOrderLineKey()
-            });
-        }
+        // OrderLine XML Generation - 1차연동에서 주문상품정보의 변경은 제외
+//        String ol_template = FileContentReader.readContent(getClass().getResourceAsStream(ol_templateFile));
+//
+//        MessageFormat orderLineMsg = new MessageFormat(ol_template);
+//        String orderLineText = "";
+//        for(int i=0; i<order.getOrderLineList().size(); i++){
+//
+//            OrderLine orderLine = order.getOrderLineList().get(i);
+//            orderLineText += orderLineMsg.format(new String[] { Double.toString(orderLine.getQuantity()),
+//                                                                orderLine.getItemId(),
+//                                                                Double.toString(orderLine.getUnitPrice()),
+//                                                                Double.toString(orderLine.getListPrice()),
+//                                                                Double.toString(orderLine.getRetailPrice()),
+//                                                                orderLine.getAction(),
+//                                                                orderLine.getOrderLineKey()
+//            });
+//        }
 
         // Order XML Generation
         String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 
 		MessageFormat msg = new MessageFormat(template);
 		String input = msg.format(new String[] {
-                order.getOrderHeaderKey(),
-                "",
+                order.getEnterpriseCode(),
+                order.getOrderNo(),
                 order.getPaymentStatus(),
-                "",
-                order.getReqDeliveryDate(),
-                order.getShipNode(),
+                "", // OrderLine은 ""처리
                 order.getFirstName(), order.getLastName(), order.getPhone(), order.getEmail(), order.getMobilePhone(),
-                order.getAddress1(), order.getAddress2(), order.getCity(), order.getCountry(), order.getZipcode(),
-                orderLineText
+                order.getAddress1(), order.getAddress2(), order.getCity(), order.getCountry(), order.getZipcode()
         });
 		
 		//  API 호출
