@@ -25,9 +25,9 @@ public class CallAPICreateOrder {
 
         // Order 기본정보
         ord.setEnterpriseCode("Aurora-Corp");
-        ord.setOrderNo("ORDER_TEST_10");
+        ord.setOrderNo("ORDER_TEST_17");
         ord.setSellerOrganizationCode("Aurora");
-        ord.setBuyerUserId("buyer1");
+        ord.setBuyerUserId("100000049");
         ord.setPaymentStatus("AWAIT_AUTH");
         ord.setReqDeliveryDate("2014-05-05");
         ord.setReqShipDate("2014-05-01");
