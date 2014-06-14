@@ -53,6 +53,7 @@ public class CreateOrder {
                 orderLineText,
                 order.getFirstName(), order.getLastName(), order.getPhone(), order.getEmail(), order.getMobilePhone(),
                 order.getAddress1(), order.getAddress2(), order.getCity(), order.getCountry(), order.getZipcode(),
+                order.getPaymentType()
         });
 		
 		//  API 호출

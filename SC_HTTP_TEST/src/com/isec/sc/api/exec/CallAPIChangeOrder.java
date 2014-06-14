@@ -19,14 +19,13 @@ public class CallAPIChangeOrder {
 
 		Order ord = new Order();
 
-        // Order Master 생성
-        ord.setEnterpriseCode("Aurora");
-        ord.setSellerOrganizationCode("Aurora");
-        ord.setOrderNo("ORDER_TEST_3");
-
         // OrderHeaderKey
         // 20140421025543388652
         // ord.setOrderHeaderKey("20140421025543388652");
+
+        ord.setEnterpriseCode("Aurora-Corp");
+        ord.setSellerOrganizationCode("Aurora");
+        ord.setOrderNo("ORDER_TEST_11");
 
         /*
             결재승인상태 변경 (승인완료)
@@ -37,8 +36,8 @@ public class CallAPIChangeOrder {
         ord.setPaymentStatus("AUTHORIZED");
 
         // 구매자/배송처 정보
-        ord.setFirstName("Barack");
-        ord.setLastName("Obama");
+        ord.setFirstName("Barackaaa");
+        ord.setLastName("Obamabbb");
         ord.setPhone("82212345678");
         ord.setEmail("test@test.com");
         ord.setMobilePhone("1048110813");

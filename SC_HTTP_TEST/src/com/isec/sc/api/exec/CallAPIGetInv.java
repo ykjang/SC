@@ -20,7 +20,9 @@ public class CallAPIGetInv {
 		
 		// 아이템 재고정보 조회
 		GetInventorySupply is = new GetInventorySupply();
-		is.setItem("GRA122A010BLML");
+		is.setItem("ITEM0001");
+        is.setOrganizationCode("Aurora-Corp");
+        is.setShipNode("Aurora_WH1");
 		
 		
 		int result = is.run();

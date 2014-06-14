@@ -29,7 +29,7 @@ public class GetInventorySupply {
 		String template = FileContentReader.readContent(getClass().getResourceAsStream(templateFile));
 		
 		MessageFormat msg = new MessageFormat(template);
-		String input = msg.format(new String[] { item, organizationCode, shipNode });
+		String input = msg.format(new String[] { item, organizationCode });
 		
 		
 		// API 호출

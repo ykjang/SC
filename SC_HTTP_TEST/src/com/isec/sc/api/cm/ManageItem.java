@@ -14,8 +14,8 @@ public class ManageItem {
 	// API Input Template
 	private static final String itemTemplate = "<Item Action=\"{0}\" GlobalItemID=\"{1}\" ItemID=\"{2}\" OrganizationCode=\"{3}\" UnitOfMeasure=\"{4}\">"
 			+ "<PrimaryInformation "
-			+ " EffectiveEndDate=\"{5}\" "
-			+ " EffectiveStartDate=\"{6}\" "
+			+ " EffectiveStartDate=\"{5}\" "
+			+ " EffectiveEndDate=\"{6}\" "
 			+ " ManufacturerItem=\"{7}\" "
 			+ " ManufacturerName=\"{8}\" "
 			+ " UnitCost=\"{9}\" "

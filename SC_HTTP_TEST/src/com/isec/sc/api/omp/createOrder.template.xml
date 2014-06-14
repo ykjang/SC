@@ -9,6 +9,6 @@
       <PersonInfoBillTo FirstName="{9}" LastName="{10}" DayPhone="{11}" EMailID="{12}" MobilePhone="{13}"
                       AddressLine1="{14}" AddressLine2="{15}" City="{16}" Country="{17}" ZipCode="{18}" />
       <PaymentMethods>
-          <PaymentMethod PaymentType="CREDIT_CARD"/>
+          <PaymentMethod PaymentType="{19}"/>
       </PaymentMethods>
    </Order>

@@ -24,7 +24,7 @@ public class CallAPICreateOrder {
 		Order ord = new Order();
 
         // Order 기본정보
-        ord.setEnterpriseCode("Aurora-Corp");
+        ord.setEnterpriseCode("Aurora-Corps");
         ord.setOrderNo("ORDER_TEST_17");
         ord.setSellerOrganizationCode("Aurora");
         ord.setBuyerUserId("100000049");
@@ -44,6 +44,9 @@ public class CallAPICreateOrder {
         ord.setCity("Washington");
         ord.setCountry("KR");
         ord.setZipcode("123456");
+
+        // 결제유형
+        ord.setPaymentType("CREDIT_CARD");
 
 
         // Order 상품정보 생성(n건, 상품코드,주문수량,가격) - 테스트로 2건의 주문상품데이타 생성

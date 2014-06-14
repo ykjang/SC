@@ -31,7 +31,7 @@ public class CallAPIMgItm {
 		String[] arr_bar_code = {"GRA122A010BLML","GRA122A010BLXSS","GRA122A01GORML", "GRA122A01GORXSS"};
 		String[] arr_brand_id = {"SD","AE","RL","TH"};
 		String[] arr_brand_name = {"SuperDry","American Eagle","Ralph Rauren","Tommy"};
-		Double[] arr_sale_price = {15000.00, 16000.00, 17000.00, 18000.00};
+		Double[] arr_sale_price = {150.00, 160.00, 170.00, 180.00};
 		String[] arr_pname = {"Jacket","Shirts","Pants","Polo"};
 		String[] arr_item_color = {"BL","BL","OR", "OR"};
 		String[] arr_item_size = {"ML","XSS","ML", "XSS"};

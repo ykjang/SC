@@ -32,6 +32,10 @@ public class Order {
     private String country;
     private String zipcode;
 
+    private String paymentType;
+
+
+
     // OrderLine 정보 (주문상품, 수량, 가격)
     private ArrayList<OrderLine> orderLineList = new ArrayList<OrderLine>();
 
@@ -201,5 +205,13 @@ public class Order {
 
     public void setReqShipDate(String reqShipDate) {
         this.reqShipDate = reqShipDate;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
     }
 }
